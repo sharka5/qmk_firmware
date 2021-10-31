@@ -23,6 +23,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 enum layer_names {
     _BASE = 0,
     _FL,
+    _CTRL,
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -72,6 +73,29 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                 {   _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,   _______,     _______,     KC_NO,  _______,    KC_NO,  _______,  _______,  _______,    KC_NO },
                 {   _______,    KC_NO,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,   _______,     _______,     KC_NO,  _______,  _______,  _______,  _______,  _______,  RGB_SAI },
                 {   _______,  KC_LALT,  KC_LGUI,    KC_NO,    KC_NO,    KC_NO,  _______,    KC_NO,    KC_NO,    KC_NO,   _______,     MO(_FL),   _______,  _______,  _______,  _______,  _______,  _______,    KC_NO }
+              },  
+
+/*				+--------------------------------------------------------------------------+-------------------+
+				|     |    |    |    |    |    |    |    |    |    |    |    |    |   |    |    |    |    |    |
+				+--------------------------------------------------------------------------+----|----|----|----+				
+ 				|     |    |    |    |    |    |    |    |    |    |    |    |    |        |    |    |    |    |
+ 				+--------------------------------------------------------------------------+----|----|----|----+
+ 				|       |    |    |    |    |    |    |    |    |    |    |    |    |      |    |    |    |    |
+ 				+--------------------------------------------------------------------------+----|----|----|    +
+ 				|         |    |    |    |    |    |    |    |    |    |    |    |         |    |    |    |    |
+ 				+--------------------------------------------------------------------------+----|----|----|----+
+ 				|          |    |    |    |    |    |    |    |    |    |    |        |    |    |    |    |    |
+ 				+--------------------------------------------------------------------------+----|----|----|    +
+ 				|LCTRL|     |      |                             |     |   |     |    |    |    |    |    |    |
+ 				+--------------------------------------------------------------------------+-------------------+
+*/ 				
+    /*  Row:        0          1          2          3        4        5        6         7        8        9          10         11         12         13         14         15         16         17         18     */
+    [_CTRL] = { {   _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,   _______,     _______,   _______,  _______,  _______,  _______,  _______,  _______,  _______ },
+                {   _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,   _______,     _______,   _______,  _______,    KC_NO,  _______,  _______,  _______,  _______ },
+                {   _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,   _______,     _______,   _______,  _______,    KC_NO,  _______,  _______,  _______,  _______ },
+                {   _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,   _______,     _______,     KC_NO,  _______,    KC_NO,  _______,  _______,  _______,    KC_NO },
+                {   _______,    KC_NO,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,   _______,     _______,     KC_NO,  _______,  _______,  _______,  _______,  _______,  _______ },
+                {   MOD_LCTL, _______,  _______,    KC_NO,    KC_NO,    KC_NO,  _______,    KC_NO,    KC_NO,    KC_NO,   _______,     MO(_FL),   _______,  _______,  _______,  _______,  _______,  _______,    KC_NO }
               }  
 
 };
@@ -99,9 +123,9 @@ void keyboard_post_init_user(void) {
   // Customise these values to desired behaviour
   debug_enable=true;
   debug_matrix=true;
-  //debug_keyboard=true;
+  debug_keyboard=true;
   //debug_mouse=true;
-  //layer_state_set_user
+  //layer_state_set_user;
 }
 
 void suspend_power_down_user(void) {
@@ -114,31 +138,36 @@ void suspend_wakeup_init_user(void) {
   rgb_matrix_enable_noeeprom();
 }
 
-/*
+
+//rgb_matrix_mode(RGB_MATRIX_CUSTOM_fn_layer); //user custom RGB matrix effects
+
+
+
 // RGB changes depending on layer value (state)
 layer_state_t layer_state_set_user(layer_state_t state) {
     switch (get_highest_layer(state)) {
     case _FL:
         rgb_matrix_set_color_all (0x99, 0xF5, 0xFF);
         break;
-    case _LOWER:
-        rgb_matrix_set_color_all (rgb_gold);
+    case _CTRL:
+        rgb_matrix_set_color_all (0x7A, 0x00, 0xFF);
         break;
+    /*
     case _PLOVER:
         rgb_matrix_set_color_all (rgb_green);
         break;
     case _ADJUST:
         rgb_matrix_set_color_all (rgb_purple);
         break;
+        */
     default: //  for any other layers, or the default layer
-        //rgblight_setrgb (0x00,  0xFF, 0xFF);
+        rgb_matrix_set_color_all (0x00, 0xFF, 0x00);
         break;
     }
   return state;
 }
-*/
-/*
 
+/*
 // RGB Modes
 // 1 = Static
 // 2-5 = Breathing
@@ -150,7 +179,7 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 // 26-30 = Static Gradient
 const uint8_t RGBLED_RAINBOW_SWIRL_INTERVALS[] PROGMEM = {100, 50, 10}; // Set the last one to 10ms for some speedy swirls
 
-uint8_t prev = _QWERTY;
+uint8_t prev = _BASE;
 uint32_t check;
 uint32_t desired = 9;
 
@@ -160,19 +189,14 @@ void matrix_init_user() {
 
 uint32_t layer_state_set_user(uint32_t state) {
   uint8_t layer = biton32(state);
-  if (prev!=_ADJUST) {
+  if (prev!=_BASE) {
 	  switch (layer) {
-		case _QWERTY:
+		case _BASE:
 		  rgblight_mode(desired);
 		  break;
 		
-		case _LOWER: // If we're in swirl mode, then speed up the swirls, otherwise breathe
-		  check = rgblight_get_mode();
-		  if (check > 8 && check < 15) {
-			rgblight_mode(14);
-		  } else {
-			rgblight_mode(5);
-		  }
+		case _FL: 
+			rgb_matrix_set_color(20, 0x00, 0xFF, 0x00);
 		  break;
 		
 		case _RAISE: // Same as above but reverse direction, otherwise nightrider
@@ -193,5 +217,4 @@ uint32_t layer_state_set_user(uint32_t state) {
   prev = layer;
   return state;
 }
-
 */

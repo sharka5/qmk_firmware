@@ -29,4 +29,4 @@
 #define LED_PIN_ON_STATE  1
 
 /* N key rollover */
-/*#define FORCE_NKRO */
+#define FORCE_NKRO
