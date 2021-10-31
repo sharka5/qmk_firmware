@@ -101,4 +101,97 @@ void keyboard_post_init_user(void) {
   debug_matrix=true;
   //debug_keyboard=true;
   //debug_mouse=true;
+  //layer_state_set_user
 }
+
+void suspend_power_down_user(void) {
+    // code will run multiple times while keyboard is suspended
+  rgb_matrix_disable_noeeprom();
+}
+
+void suspend_wakeup_init_user(void) {
+    // code will run on keyboard wakeup
+  rgb_matrix_enable_noeeprom();
+}
+
+/*
+// RGB changes depending on layer value (state)
+layer_state_t layer_state_set_user(layer_state_t state) {
+    switch (get_highest_layer(state)) {
+    case _FL:
+        rgb_matrix_set_color_all (0x99, 0xF5, 0xFF);
+        break;
+    case _LOWER:
+        rgb_matrix_set_color_all (rgb_gold);
+        break;
+    case _PLOVER:
+        rgb_matrix_set_color_all (rgb_green);
+        break;
+    case _ADJUST:
+        rgb_matrix_set_color_all (rgb_purple);
+        break;
+    default: //  for any other layers, or the default layer
+        //rgblight_setrgb (0x00,  0xFF, 0xFF);
+        break;
+    }
+  return state;
+}
+*/
+/*
+
+// RGB Modes
+// 1 = Static
+// 2-5 = Breathing
+// 6-8 = Rainbow
+// 9-14 = Swirl
+// 15-20 = Snake
+// 21-24 = Nightrider
+// 25 = Christmas
+// 26-30 = Static Gradient
+const uint8_t RGBLED_RAINBOW_SWIRL_INTERVALS[] PROGMEM = {100, 50, 10}; // Set the last one to 10ms for some speedy swirls
+
+uint8_t prev = _QWERTY;
+uint32_t check;
+uint32_t desired = 9;
+
+void matrix_init_user() {
+	rgblight_mode(desired);
+}
+
+uint32_t layer_state_set_user(uint32_t state) {
+  uint8_t layer = biton32(state);
+  if (prev!=_ADJUST) {
+	  switch (layer) {
+		case _QWERTY:
+		  rgblight_mode(desired);
+		  break;
+		
+		case _LOWER: // If we're in swirl mode, then speed up the swirls, otherwise breathe
+		  check = rgblight_get_mode();
+		  if (check > 8 && check < 15) {
+			rgblight_mode(14);
+		  } else {
+			rgblight_mode(5);
+		  }
+		  break;
+		
+		case _RAISE: // Same as above but reverse direction, otherwise nightrider
+		  check = rgblight_get_mode();
+		  if (check > 8 && check < 15) {
+			rgblight_mode(13);
+		  } else {
+			rgblight_mode(23);
+		  }
+		  break;
+		
+		case _ADJUST:
+		  break;
+	  }
+  } else {
+	  desired = rgblight_get_mode();
+  }
+  prev = layer;
+  return state;
+}
+
+*/
