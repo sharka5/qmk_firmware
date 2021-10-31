@@ -27,3 +27,6 @@
 #define LED_CAPS_LOCK_PIN B12
 #define LED_NUM_LOCK_PIN  D4
 #define LED_PIN_ON_STATE  1
+
+/* N key rollover */
+/*#define FORCE_NKRO */
