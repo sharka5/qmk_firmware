@@ -167,7 +167,14 @@ layer_state_t layer_state_set_user(layer_state_t state) {
         rgb_matrix_set_color (87, 0x99, 0xF5, 0xFF);   // Saturaturation (shift decrease)
         break;
     case _CTRL:
-        rgb_matrix_set_color_all (0x7A, 0x00, 0xFF);    //rgb_purple
+        //rgb_matrix_set_color_all (0x7A, 0x00, 0xFF);    //rgb_purple
+        rgb_matrix_set_color (59, 0x7A, 0x00, 0xFF);   // F
+        rgb_matrix_set_color (56, 0x7A, 0x00, 0xFF);   // S
+        rgb_matrix_set_color (57, 0x7A, 0x00, 0xFF);   // A
+        rgb_matrix_set_color (72, 0x7A, 0x00, 0xFF);   // Z
+        rgb_matrix_set_color (73, 0x7A, 0x00, 0xFF);   // X
+        rgb_matrix_set_color (74, 0x7A, 0x00, 0xFF);   // C
+        rgb_matrix_set_color (75, 0x7A, 0x00, 0xFF);   // V
         break;
     /*
     case _PLOVER:
