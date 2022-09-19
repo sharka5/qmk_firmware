@@ -148,33 +148,33 @@ void suspend_wakeup_init_user(void) {
 layer_state_t layer_state_set_user(layer_state_t state) {
     switch (get_highest_layer(state)) {
     case _FL: //this doesn't seem effiencent 
-        rgb_matrix_set_color_all (0x00, 0x00, 0x00);  //sets all keys to black
-        rgb_matrix_set_color (1, 0x99, 0xF5, 0xFF);   // Scroll lock
-        rgb_matrix_set_color (2, 0x99, 0xF5, 0xFF);   // Pause
-        rgb_matrix_set_color (5, 0x99, 0xF5, 0xFF);   // LED brightness decrease
-        rgb_matrix_set_color (6, 0x99, 0xF5, 0xFF);   // LED brightness increase
-        rgb_matrix_set_color (7, 0x99, 0xF5, 0xFF);   // Previous track
-        rgb_matrix_set_color (8, 0x99, 0xF5, 0xFF);   // Play/Pause
-        rgb_matrix_set_color (9, 0x99, 0xF5, 0xFF);   // Next track
-        rgb_matrix_set_color (10, 0x99, 0xF5, 0xFF);   // Mute
-        rgb_matrix_set_color (11, 0x99, 0xF5, 0xFF);   // Volume down
-        rgb_matrix_set_color (12, 0x99, 0xF5, 0xFF);   // Volume up
-        rgb_matrix_set_color (14, 0x99, 0xF5, 0xFF);   // Print Screen
-        rgb_matrix_set_color (17, 0x99, 0xF5, 0xFF);   // Sleep
-        rgb_matrix_set_color (18, 0x99, 0xF5, 0xFF);   // LED Backlight toggle
-        rgb_matrix_set_color (36, 0x99, 0xF5, 0xFF);   // Hue increase (shift decrease)
-        rgb_matrix_set_color (54, 0x99, 0xF5, 0xFF);   // Speed increase (shift decrease)
-        rgb_matrix_set_color (87, 0x99, 0xF5, 0xFF);   // Saturaturation (shift decrease)
+        rgb_matrix_set_color_all (RGB_OFF);  //sets all keys to black
+        rgb_matrix_set_color (1, RGB_PURPLE);   // Scroll lock
+        rgb_matrix_set_color (2, RGB_PURPLE);   // Pause
+        rgb_matrix_set_color (5, RGB_PURPLE);   // LED brightness decrease
+        rgb_matrix_set_color (6, RGB_PURPLE);   // LED brightness increase
+        rgb_matrix_set_color (7, RGB_PURPLE);   // Previous track
+        rgb_matrix_set_color (8, RGB_PURPLE);   // Play/Pause
+        rgb_matrix_set_color (9, RGB_PURPLE);   // Next track
+        rgb_matrix_set_color (10, RGB_PURPLE);   // Mute
+        rgb_matrix_set_color (11, RGB_PURPLE);   // Volume down
+        rgb_matrix_set_color (12, RGB_PURPLE);   // Volume up
+        rgb_matrix_set_color (14, RGB_PURPLE);   // Print Screen
+        rgb_matrix_set_color (17, RGB_PURPLE);   // Sleep
+        rgb_matrix_set_color (18, RGB_PURPLE);   // LED Backlight toggle
+        rgb_matrix_set_color (36, RGB_PURPLE);   // Hue increase (shift decrease)
+        rgb_matrix_set_color (54, RGB_PURPLE);   // Speed increase (shift decrease)
+        rgb_matrix_set_color (87, RGB_PURPLE);   // Saturaturation (shift decrease)
         break;
     case _CTRL:
-        //rgb_matrix_set_color_all (0x7A, 0x00, 0xFF);    //rgb_purple
-        rgb_matrix_set_color (59, 0x7A, 0x00, 0xFF);   // F
-        rgb_matrix_set_color (56, 0x7A, 0x00, 0xFF);   // S
-        rgb_matrix_set_color (57, 0x7A, 0x00, 0xFF);   // A
-        rgb_matrix_set_color (72, 0x7A, 0x00, 0xFF);   // Z
-        rgb_matrix_set_color (73, 0x7A, 0x00, 0xFF);   // X
-        rgb_matrix_set_color (74, 0x7A, 0x00, 0xFF);   // C
-        rgb_matrix_set_color (75, 0x7A, 0x00, 0xFF);   // V
+        //rgb_matrix_set_color_all (RGB_PURPLE);    //rgb_purple
+        rgb_matrix_set_color (59, RGB_PURPLE);   // F
+        rgb_matrix_set_color (56, RGB_PURPLE);   // S
+        rgb_matrix_set_color (57, RGB_PURPLE);   // A
+        rgb_matrix_set_color (72, RGB_PURPLE);   // Z
+        rgb_matrix_set_color (73, RGB_PURPLE);   // X
+        rgb_matrix_set_color (74, RGB_PURPLE);   // C
+        rgb_matrix_set_color (75, RGB_PURPLE);   // V
         break;
     /*
     case _PLOVER:
@@ -185,7 +185,7 @@ layer_state_t layer_state_set_user(layer_state_t state) {
         break;
         */
     default: //  for any other layers, or the default layer
-        rgb_matrix_set_color_all (0x00, 0xFF, 0x00);
+        rgb_matrix_set_color_all (RGB_GREEN);
         break;
     }
   return state;
