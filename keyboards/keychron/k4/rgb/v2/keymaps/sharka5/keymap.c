@@ -67,7 +67,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  				+--------------------------------------------------------------------------+-------------------+
 */ 				
     /*  Row:        0          1          2          3        4        5        6         7        8        9          10         11         12         13         14         15         16         17         18     */
-    [_FL] =   { {     RESET,  KC_SLCK,  KC_PAUS,   KC_APP,  _______,  RGB_VAD,  RGB_VAI,  KC_MPRV,  KC_MPLY,  KC_MNXT,   KC_MUTE,     KC_VOLD,   KC_VOLU,  _______,  KC_PSCR,  _______,  _______,  KC_SLEP,  RGB_TOG },
+    [_FL] =   { {     RESET,  KC_SLCK,  KC_PAUS,   KC_APP,  _______,  RGB_VAI,  RGB_VAD,  KC_MPRV,  KC_MPLY,  KC_MNXT,   KC_MUTE,     KC_VOLD,   KC_VOLU,  _______,  KC_PSCR,  _______,  _______,  KC_SLEP,  RGB_TOG },
                 {   _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,   _______,     _______,   _______,  _______,    KC_NO,  _______,  _______,  _______,  RGB_HUI },
                 {   _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,   _______,     _______,   _______,  _______,    KC_NO,  _______,  _______,  _______,  RGB_SPI },
                 {   _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,   _______,     _______,     KC_NO,  _______,    KC_NO,  _______,  _______,  _______,    KC_NO },
@@ -151,16 +151,16 @@ layer_state_t layer_state_set_user(layer_state_t state) {
         rgb_matrix_set_color_all (RGB_OFF);  //sets all keys to black
         rgb_matrix_set_color (1, RGB_PURPLE);   // Scroll lock
         rgb_matrix_set_color (2, RGB_PURPLE);   // Pause
-        rgb_matrix_set_color (5, RGB_PURPLE);   // LED brightness decrease
-        rgb_matrix_set_color (6, RGB_PURPLE);   // LED brightness increase
-        rgb_matrix_set_color (7, RGB_PURPLE);   // Previous track
-        rgb_matrix_set_color (8, RGB_PURPLE);   // Play/Pause
-        rgb_matrix_set_color (9, RGB_PURPLE);   // Next track
-        rgb_matrix_set_color (10, RGB_PURPLE);   // Mute
-        rgb_matrix_set_color (11, RGB_PURPLE);   // Volume down
-        rgb_matrix_set_color (12, RGB_PURPLE);   // Volume up
-        rgb_matrix_set_color (14, RGB_PURPLE);   // Print Screen
-        rgb_matrix_set_color (17, RGB_PURPLE);   // Sleep
+        rgb_matrix_set_color (5, RGB_GOLD);   // LED brightness decrease
+        rgb_matrix_set_color (6, RGB_GOLDENROD);   // LED brightness increase
+        rgb_matrix_set_color (7, RGB_BLUE);   // Previous track
+        rgb_matrix_set_color (8, RGB_AZURE);   // Play/Pause
+        rgb_matrix_set_color (9, RGB_BLUE);   // Next track
+        rgb_matrix_set_color (10, RGB_RED);   // Mute
+        rgb_matrix_set_color (11, RGB_YELLOW);   // Volume down
+        rgb_matrix_set_color (12, RGB_YELLOW);   // Volume up
+        //rgb_matrix_set_color (14, RGB_PURPLE);   // Print Screen
+        rgb_matrix_set_color (17, RGB_CYAN);   // Sleep
         rgb_matrix_set_color (18, RGB_PURPLE);   // LED Backlight toggle
         rgb_matrix_set_color (36, RGB_PURPLE);   // Hue increase (shift decrease)
         rgb_matrix_set_color (54, RGB_PURPLE);   // Speed increase (shift decrease)
