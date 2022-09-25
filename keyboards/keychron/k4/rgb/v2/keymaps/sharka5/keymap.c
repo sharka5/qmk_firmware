@@ -22,6 +22,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // entirely and just use numbers.
 enum layer_names {
     _BASE = 0,
+    _SIMS,
     _FL,
     _CTRL,
 };
@@ -43,12 +44,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  				|LCTRL| LGUI|  LALT|            SPACE            | RALT| FN|RCTRL| LFT| DWN| RGT|  0 |  . |    |
  				+--------------------------------------------------------------------------+-------------------+
 */ 				
-    /*  Row:        0          1          2          3        4        5        6         7        8        9          10         11         12         13         14         15         16         17         18     */
-    [_BASE] = { {   KC_ESC,    KC_F1,     KC_F2,     KC_F3,   KC_F4,   KC_F5,   KC_F6,    KC_F7,   KC_F8,   KC_F9,     KC_F10,    KC_F11,    KC_F12,    KC_DEL,    KC_HOME,   KC_END,    KC_PGUP,   KC_PGDN,   RGB_MOD },
-                {   KC_GRV,    KC_1,      KC_2,      KC_3,    KC_4,    KC_5,    KC_6,     KC_7,    KC_8,    KC_9,      KC_0,      KC_MINS,   KC_EQL,    KC_BSPC,   KC_NO,     KC_NLCK,   KC_PSLS,   KC_PAST,   KC_PMNS },
-                {   KC_TAB,    KC_Q,      KC_W,      KC_E,    KC_R,    KC_T,    KC_Y,     KC_U,    KC_I,    KC_O,      KC_P,      KC_LBRC,   KC_RBRC,   KC_BSLS,   KC_NO,     KC_P7,     KC_P8,     KC_P9,     KC_PPLS },
-                {   KC_CAPS,   KC_A,      KC_S,      KC_D,    KC_F,    KC_G,    KC_H,     KC_J,    KC_K,    KC_L,      KC_SCLN,   KC_QUOT,   KC_NO,     KC_ENT,    KC_NO,     KC_P4,     KC_P5,     KC_P6,     KC_NO   },
-                {   KC_LSFT,   KC_NO,     KC_Z,      KC_X,    KC_C,    KC_V,    KC_B,     KC_N,    KC_M,    KC_COMM,   KC_DOT,    KC_SLSH,   KC_NO,     KC_RSFT,   KC_UP,     KC_P1,     KC_P2,     KC_P3,     KC_PENT },
+    /*  Row:                   0          1          2          3        4        5        6         7        8        9          10         11         12         13         14         15         16         17         18     */
+    [_BASE] = { {              KC_ESC,    KC_F1,     KC_F2,     KC_F3,   KC_F4,   KC_F5,   KC_F6,    KC_F7,   KC_F8,   KC_F9,     KC_F10,    KC_F11,    KC_F12,    KC_DEL,    KC_HOME,   KC_END,    KC_PGUP,   KC_PGDN,   RGB_MOD },
+                {              KC_GRV,    KC_1,      KC_2,      KC_3,    KC_4,    KC_5,    KC_6,     KC_7,    KC_8,    KC_9,      KC_0,      KC_MINS,   KC_EQL,    KC_BSPC,   KC_NO,     KC_NLCK,   KC_PSLS,   KC_PAST,   KC_PMNS },
+                {              KC_TAB,    KC_Q,      KC_W,      KC_E,    KC_R,    KC_T,    KC_Y,     KC_U,    KC_I,    KC_O,      KC_P,      KC_LBRC,   KC_RBRC,   KC_BSLS,   KC_NO,     KC_P7,     KC_P8,     KC_P9,     KC_PPLS },
+                {              KC_CAPS,   KC_A,      KC_S,      KC_D,    KC_F,    KC_G,    KC_H,     KC_J,    KC_K,    KC_L,      KC_SCLN,   KC_QUOT,   KC_NO,     KC_ENT,    KC_NO,     KC_P4,     KC_P5,     KC_P6,     KC_NO   },
+                {              KC_LSFT,   KC_NO,     KC_Z,      KC_X,    KC_C,    KC_V,    KC_B,     KC_N,    KC_M,    KC_COMM,   KC_DOT,    KC_SLSH,   KC_NO,     KC_RSFT,   KC_UP,     KC_P1,     KC_P2,     KC_P3,     KC_PENT },
                 {  LM(_CTRL, MOD_LCTL),   KC_LGUI,   KC_LALT,   KC_NO,   KC_NO,   KC_NO,   KC_SPC,   KC_NO,   KC_NO,   KC_NO,     KC_RALT,   MO(_FL),   KC_RCTL,   KC_LEFT,   KC_DOWN,   KC_RGHT,   KC_P0,     KC_PDOT,   KC_NO   }
               },
 
@@ -66,13 +67,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  				|     | LALT|  LGUI|                             |     |   |     |    |    |    |    |    |    |
  				+--------------------------------------------------------------------------+-------------------+
 */ 				
-    /*  Row:        0          1          2          3        4        5        6         7        8        9          10         11         12         13         14         15         16         17         18     */
-    [_FL] =   { {     RESET,  KC_SLCK,  KC_PAUS,   KC_APP,  _______,  RGB_VAI,  RGB_VAD,  KC_MPRV,  KC_MPLY,  KC_MNXT,   KC_MUTE,     KC_VOLD,   KC_VOLU,  _______,  KC_PSCR,  _______,  _______,  KC_SLEP,  RGB_TOG },
-                {   _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,   _______,     _______,   _______,  _______,    KC_NO,  _______,  _______,  _______,  RGB_HUI },
-                {   _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,   _______,     _______,   _______,  _______,    KC_NO,  _______,  _______,  _______,  RGB_SPI },
-                {   _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,   _______,     _______,     KC_NO,  _______,    KC_NO,  _______,  _______,  _______,    KC_NO },
-                {   _______,    KC_NO,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,   _______,     _______,     KC_NO,  _______,  _______,  _______,  _______,  _______,  RGB_SAI },
-                {   _______,  KC_LALT,  KC_LGUI,    KC_NO,    KC_NO,    KC_NO,  _______,    KC_NO,    KC_NO,    KC_NO,   _______,     MO(_FL),   _______,  _______,  _______,  _______,  _______,  _______,    KC_NO }
+    /*  Row:        0          1          2          3        4        5          6         7        8        9          10         11         12         13         14         15         16         17         18     */
+    [_FL] =   { {     RESET,  KC_SLCK,  KC_PAUS,   KC_APP,  _______,  RGB_VAI,    RGB_VAD,  KC_MPRV,  KC_MPLY,  KC_MNXT,   KC_MUTE,     KC_VOLD,   KC_VOLU,  _______,  KC_PSCR,  _______,  _______,  KC_SLEP,  RGB_TOG },
+                {   _______,  _______,  _______,  _______,  _______,  _______,    _______,  _______,  _______,  _______,   _______,     _______,   _______,  _______,    KC_NO,  _______,  _______,  _______,  RGB_HUI },
+                {   _______,  _______,  _______,  _______,  _______,  _______,    _______,  _______,  _______,  _______,   _______,     _______,   _______,  _______,    KC_NO,  _______,  _______,  _______,  RGB_SPI },
+                {   _______,  _______,  _______,  _______,  _______,  _______,    _______,  _______,  _______,  _______,   _______,     _______,     KC_NO,  _______,    KC_NO,  _______,  _______,  _______,    KC_NO },
+                {   _______,    KC_NO,  _______,  _______,  _______,  _______,    _______,  _______,  _______,  _______,   _______,     _______,     KC_NO,  _______,  _______,  _______,  _______,  _______,  RGB_SAI },
+                {   _______,  KC_LGUI,  KC_LALT,    KC_NO,    KC_NO,    KC_NO,  TG(_SIMS),  _______,    KC_NO,    KC_NO,   _______,     MO(_FL),   _______,  _______,  _______,  _______,  _______,  _______,    KC_NO }
               },  
 
 /*				+--------------------------------------------------------------------------+-------------------+
@@ -91,6 +92,30 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 */ 				
     /*  Row:        0          1          2          3        4        5        6         7        8        9          10         11         12         13         14         15         16         17         18     */
     [_CTRL] = { {   _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,   _______,     _______,   _______,  _______,  _______,  _______,  _______,  _______,  _______ },
+                {   _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,   _______,     _______,   _______,  _______,    KC_NO,  _______,  _______,  _______,  _______ },
+                {   _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,   _______,     _______,   _______,  _______,    KC_NO,  _______,  _______,  _______,  _______ },
+                {   _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,   _______,     _______,     KC_NO,  _______,    KC_NO,  _______,  _______,  _______,    KC_NO },
+                {   _______,    KC_NO,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,   _______,     _______,     KC_NO,  _______,  _______,  _______,  _______,  _______,  _______ },
+                {   MOD_LCTL, _______,  _______,    KC_NO,    KC_NO,    KC_NO,  _______,    KC_NO,    KC_NO,    KC_NO,   _______,     MO(_FL),   _______,  _______,  _______,  _______,  _______,  _______,    KC_NO }
+              },
+
+
+/*				+--------------------------------------------------------------------------+-------------------+
+				|     |    |    |    |    |    |    |    |    |    |    |    |    |   |    |    |    |    |    |
+				+--------------------------------------------------------------------------+----|----|----|----+				
+ 				|     |    |    |    |    |    |    |    |    |    |    |    |    |        |    |    |    |    |
+ 				+--------------------------------------------------------------------------+----|----|----|----+
+ 				|       |    |    |    |    |    |    |    |    |    |    |    |    |      |    |    |    |    |
+ 				+--------------------------------------------------------------------------+----|----|----|    +
+ 				|         |    |    |    |    |    |    |    |    |    |    |    |         |    |    |    |    |
+ 				+--------------------------------------------------------------------------+----|----|----|----+
+ 				|          |    |    |    |    |    |    |    |    |    |    |        |    |    |    |    |    |
+ 				+--------------------------------------------------------------------------+----|----|----|    +
+ 				|LCTRL|     |      |                             |     |   |     |    |    |    |    |    |    |
+ 				+--------------------------------------------------------------------------+-------------------+
+*/ 				
+    /*  Row:        0          1          2          3        4        5        6         7        8        9          10         11         12         13         14         15         16         17         18     */
+    [_SIMS] = { {   _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,   _______,     _______,   _______,  _______,  _______,  _______,  _______,  _______,  _______ },
                 {   _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,   _______,     _______,   _______,  _______,    KC_NO,  _______,  _______,  _______,  _______ },
                 {   _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,   _______,     _______,   _______,  _______,    KC_NO,  _______,  _______,  _______,  _______ },
                 {   _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,   _______,     _______,     KC_NO,  _______,    KC_NO,  _______,  _______,  _______,    KC_NO },
@@ -175,6 +200,40 @@ layer_state_t layer_state_set_user(layer_state_t state) {
         rgb_matrix_set_color (73, RGB_PURPLE);   // X
         rgb_matrix_set_color (74, RGB_PURPLE);   // C
         rgb_matrix_set_color (75, RGB_PURPLE);   // V
+        break;
+    case _SIMS: //SIMS Layer colours
+        //lighter green- 0xA6, 0xE3, 0x29 THIS COLOUR IS NOT CORRECT...
+        //darker green - 0x21, 0xB9, 0x6B NEITHER IS THIS ONE
+        rgb_matrix_set_color_all (RGB_OFF);    //sets whole keyboard off
+        rgb_matrix_set_color (16, 0x21, 0xB9, 0x6B);   // page up
+        rgb_matrix_set_color (17, 0x21, 0xB9, 0x6B);   // page down
+        rgb_matrix_set_color (14, 0xA6, 0xE3, 0x29);   // home
+        rgb_matrix_set_color (15, 0xA6, 0xE3, 0x29);   // end
+        rgb_matrix_set_color (39, 0x21, 0xB9, 0x6B);   // W
+        rgb_matrix_set_color (55, 0x21, 0xB9, 0x6B);   // A
+        rgb_matrix_set_color (56, 0x21, 0xB9, 0x6B);   // S
+        rgb_matrix_set_color (57, 0x21, 0xB9, 0x6B);   // D
+        rgb_matrix_set_color (59, 0xA6, 0xE3, 0x29);   // G
+        rgb_matrix_set_color (45, 0xA6, 0xE3, 0x29);   // I
+        rgb_matrix_set_color (61, 0xA6, 0xE3, 0x29);   // J
+        rgb_matrix_set_color (63, 0xA6, 0xE3, 0x29);   // L
+        rgb_matrix_set_color (23, 0xA6, 0xE3, 0x29);   // R
+        rgb_matrix_set_color (25, 0xA6, 0xE3, 0x29);   // Y
+        rgb_matrix_set_color (28, 0xA6, 0xE3, 0x29);   // O
+        rgb_matrix_set_color (78, 0xA6, 0xE3, 0x29);   // M
+        rgb_matrix_set_color (19, 0x21, 0xB9, 0x6B);   // ~ pause
+        rgb_matrix_set_color (20, 0x21, 0xB9, 0x6B);   // 1 speed
+        rgb_matrix_set_color (21, 0x21, 0xB9, 0x6B);   // 2 speed
+        rgb_matrix_set_color (22, 0x21, 0xB9, 0x6B);   // 3 speed
+        rgb_matrix_set_color (1, 0xA6, 0xE3, 0x29);   // F1 Live mode
+        rgb_matrix_set_color (2, 0xA6, 0xE3, 0x29);   // F2 Buy mode
+        rgb_matrix_set_color (3, 0xA6, 0xE3, 0x29);   // F3 Build mode
+        rgb_matrix_set_color (40, 0xA6, 0xE3, 0x29);   // E
+        rgb_matrix_set_color (71, 0xA6, 0xE3, 0x29);   // Left Shift
+        rgb_matrix_set_color (82, 0xA6, 0xE3, 0x29);   // Right Shift
+        rgb_matrix_set_color (79, 0x21, 0xB9, 0x6B);   // <
+        rgb_matrix_set_color (80, 0x21, 0xB9, 0x6B);   // >
+        rgb_matrix_set_color (24, 0xA6, 0xE3, 0x29);   // T
         break;
     /*
     case _PLOVER:
