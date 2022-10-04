@@ -210,13 +210,13 @@ layer_state_t layer_state_set_user(layer_state_t state) {
         rgb_matrix_set_color (14, 0xA6, 0xE3, 0x29);   // home
         rgb_matrix_set_color (15, 0xA6, 0xE3, 0x29);   // end
         rgb_matrix_set_color (39, 0x21, 0xB9, 0x6B);   // W
-        rgb_matrix_set_color (55, 0x21, 0xB9, 0x6B);   // A
-        rgb_matrix_set_color (56, 0x21, 0xB9, 0x6B);   // S
-        rgb_matrix_set_color (57, 0x21, 0xB9, 0x6B);   // D
-        rgb_matrix_set_color (59, 0xA6, 0xE3, 0x29);   // G
+        rgb_matrix_set_color (56, 0x21, 0xB9, 0x6B);   // A
+        rgb_matrix_set_color (57, 0x21, 0xB9, 0x6B);   // S
+        rgb_matrix_set_color (58, 0x21, 0xB9, 0x6B);   // D
+        rgb_matrix_set_color (60, 0xA6, 0xE3, 0x29);   // G
         rgb_matrix_set_color (45, 0xA6, 0xE3, 0x29);   // I
-        rgb_matrix_set_color (61, 0xA6, 0xE3, 0x29);   // J
-        rgb_matrix_set_color (63, 0xA6, 0xE3, 0x29);   // L
+        rgb_matrix_set_color (62, 0xA6, 0xE3, 0x29);   // J
+        rgb_matrix_set_color (64, 0xA6, 0xE3, 0x29);   // L
         rgb_matrix_set_color (23, 0xA6, 0xE3, 0x29);   // R
         rgb_matrix_set_color (25, 0xA6, 0xE3, 0x29);   // Y
         rgb_matrix_set_color (28, 0xA6, 0xE3, 0x29);   // O
