@@ -165,6 +165,15 @@ void suspend_wakeup_init_user(void) {
   rgb_matrix_enable_noeeprom();
 }
 
+/*
+void caps_word_set_user(bool active) {    //caps word feedback
+    if (active) {
+        // Do something when Caps Word activates.
+    } else {
+        // Do something when Caps Word deactivates.
+    }
+}
+*/
 
 //rgb_matrix_mode(RGB_MATRIX_CUSTOM_fn_layer); //user custom RGB matrix effects
 

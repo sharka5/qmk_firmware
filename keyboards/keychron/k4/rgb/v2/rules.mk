@@ -18,3 +18,4 @@ SERIAL_LINK_ENABLE = no
 WAIT_FOR_USB = no
 CUSTOM_MATRIX = yes
 DIP_SWITCH_ENABLE = yes
+CAPS_WORD_ENABLE = yes		#Caps word enable, seems self explanatory really...

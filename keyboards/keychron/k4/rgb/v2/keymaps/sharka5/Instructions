@@ -1,0 +1,11 @@
+++++++ Compile firmware by running ++++++
+
+qmk compile
+
+
+++++++ Set Sonix Keyboard Flasher to the following ++++++
+
+Device: SN32F24x
+QMK Offset: 0x00
+
+
